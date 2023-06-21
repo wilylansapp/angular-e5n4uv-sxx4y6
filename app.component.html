@@ -1,0 +1,20 @@
+<div
+  class="box-list"
+  cdkDropList
+  cdkDropListOrientation="vertical"
+  (cdkDropListDropped)="drop($event)"
+>
+  <ejs-chiplist
+    class="drag-box"
+    *ngFor="let customer of customers; let i = index; trackBy: trackById"
+    cdkDrag
+    id="chip-default"
+    enableDelete="true"
+    (delete)="remove(i)"
+  >
+    <e-chips>
+      <e-chip [text]="customer.name" cssClass="e-primary"></e-chip>
+    </e-chips>
+  </ejs-chiplist>
+  <div class="hand" (click)="add()">+add</div>
+</div>
